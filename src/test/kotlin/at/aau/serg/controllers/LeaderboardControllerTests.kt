@@ -58,6 +58,7 @@ class LeaderboardControllerTests {
     }
 
     @Test
+    //Test Spieler mit gewählten rang zusätzlich 3 darunter und 3 darüber
     fun test_getLeaderboard_withRank_returnsPlayerAndThreeAboveAndBelow() {
         val results = listOf(
             GameResult(1, "p1", 100, 10.0),
@@ -101,6 +102,7 @@ class LeaderboardControllerTests {
     }
 
     @Test
+    // Ungültiger Rank soll zu HTTP 400 Fehler führen
     fun test_getLeaderboard_withNegativeRank_throwsBadRequest() {
         whenever(mockedService.getGameResults()).thenReturn(emptyList())
 
